@@ -1,16 +1,21 @@
-var botaoSoma = document.getElementById('btn-soma');
+var primeiraEntrada = document.getElementById('entrada-primeiro-valor');
+var segundaEntrada = document.getElementById('entrada-segundo-valor');
+var botaoSoma = document.getElementById('botao-somar');
+var legendaResultado = document.getElementById('legenda-resultado');
 
-function somar() {
-    var entradaNum1 = Number(document.getElementById('soma1').value);
-    var entradaNum2 = Number(document.getElementById('soma2').value);
-    
-    if (!isNaN(entradaNum1) && !isNaN(entradaNum2)) {
-        var resultadoSoma = entradaNum1 + entradaNum2;
-        document.getElementById('resultado-soma').innerHTML = "Resultado da soma: " + resultadoSoma + ".";
-    }
-    else {
-        document.getElementById('resultado-soma').innerHTML = "Digite dois números válidos.";
-    }
+function somar(primeiroNumero, segundoNumero) {
+    let resultadoSoma = primeiroNumero + segundoNumero;
+    return resultadoSoma;
 }
 
-botaoSoma.addEventListener('click', somar);
+botaoSoma.addEventListener('click', function(){
+    let primeiroNumero = Number(primeiraEntrada.value);
+    let segundoNumero = Number(segundaEntrada.value);
+    let resultado = somar(primeiroNumero, segundoNumero);
+
+    if (!isNaN(resultado)){
+        legendaResultado.innerHTML = "Resultado da soma: " + resultado + ".";
+    } else {
+        legendaResultado.innerHTML = "Digite dois números válidos."
+    }
+});
