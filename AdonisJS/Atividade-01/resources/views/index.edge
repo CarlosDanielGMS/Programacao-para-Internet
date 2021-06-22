@@ -1,0 +1,15 @@
+@layout('layouts/main')
+@set('title', 'Início - Atividade 01')
+
+@section('body')
+    <h1 class="title"> Início </h1>
+    <p class="subtitle">
+        Página inicial da primeira atividade.
+    </p>
+    
+    <ul>
+        <li>
+            <a href="{{ route('about') }}">Sobre</a>
+        </li>
+    </ul>
+@end

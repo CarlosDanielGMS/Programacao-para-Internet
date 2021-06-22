@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdonisJS - A fully featured web framework for Node.js</title>
+  <title>{{ title }}</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
   <style>
     html, body {
-      background-color: #F7F8FA;
+      background-color: #18191A;
       font-family: 'Poppins', sans-serif;
       height: 100vh;
-      color: #46444c;
+      color: #B3B3B3;
       position: relative;
     }
 
@@ -48,7 +48,7 @@
       font-size: 50px;
       line-height: 50px;
       margin-bottom: 10px;
-      color: #17161A;
+      color: #FFFFFF;
     }
 
     .subtitle {
@@ -83,27 +83,9 @@
   </style>
 </head>
 <body>
-
   <main>
     <div>
-      <h1 class="title"> It Works! </h1>
-      <p class="subtitle">
-        Congratulations, you have just created your first AdonisJS app.
-      </p>
-
-      <ul>
-        <li>
-          The route for this page is defined inside <code>start/routes.ts</code> file
-        </li>
-
-        <li>
-          You can update this page by editing <code>resources/views/welcome.edge</code> file
-        </li>
-
-        <li>
-          If you run into problems, you can reach us on <a href="https://discord.gg/vDcEjq6?">Discord</a> or the <a href="https://forum.adonisjs.com/">Forum</a>.
-        </li>
-      </ul>
+        @!section('body')
     </div>
   </main>
 </body>
