@@ -14,8 +14,8 @@
         <th>Descrição</th>
         <th>Especificações</th>
         <th>Categoria</th>
-        <th>Valor unitário</th>
-        <th>Quantidade em estoque</th>
+        <th>Valor</th>
+        <th>Quantidade</th>
       </tr>
     </thead>
 
@@ -27,12 +27,12 @@
         <td>{{ produto.descricao }}</td>
         <td>{{ produto.especificacoes }}</td>
         <td>{{ produto.categoria }}</td>
-        <td>{{ produto.valorUnitario }}</td>
-        <td>{{ produto.quantidadeEstoque }}</td>
+        <td>{{ produto.valor }}</td>
+        <td>{{ produto.quantidade }}</td>
       </tr>
       @end
     </tbody>
   </table>
 
-  <a class="btn btn-primary" href="#" role="button">Cadastrar</a>
+  <a class="btn btn-primary" href="{{ route('ProdutoRegister') }}" role="button">Cadastrar</a>
 @end

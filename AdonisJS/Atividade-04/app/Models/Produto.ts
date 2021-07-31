@@ -18,10 +18,10 @@ export default class Produto extends BaseModel {
   public categoria: string
 
   @column()
-  public valorUnitario: number
+  public valor: number
   
   @column()
-  public quantidadeEstoque: number
+  public quantidade: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

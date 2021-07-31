@@ -9,8 +9,8 @@ export default class Produtos extends BaseSchema {
       table.string('nome').notNullable();
       table.string('descricao').notNullable();
       table.string('categoria').notNullable();
-      table.decimal('valorUnitario').notNullable();
-      table.integer('quantidadeEstoque').notNullable();
+      table.decimal('valor').notNullable();
+      table.integer('quantidade').notNullable();
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
