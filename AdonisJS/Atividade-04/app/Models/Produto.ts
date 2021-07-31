@@ -10,6 +10,9 @@ export default class Produto extends BaseModel {
 
   @column()
   public descricao: string
+
+  @column()
+  public especificacoes: string
   
   @column()
   public categoria: string
