@@ -1,0 +1,35 @@
+@layout('layouts/bootstrap')
+@set('titulo', 'Lista de usuários')
+
+@section('cabecalho')
+  <h1 class="text-center">Lista de usuários</h1>
+@end
+
+@section('corpo')
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @each(usuario in usuarios)
+      <tr>
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.sobrenome }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>
+          <a href="{{ route('removerUsuario', { id: usuario.id }) }}" class="btn btn-danger">Remover</a>
+        </td>
+      </tr>
+      @end
+    </tbody>
+  </table>
+
+  <a class="btn btn-primary" href="{{ route('cadastroUsuario') }}" role="button">Cadastrar</a>
+@end

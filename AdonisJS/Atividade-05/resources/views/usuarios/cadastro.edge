@@ -1,0 +1,32 @@
+@layout('layouts/bootstrap')
+@set('titulo', 'Cadastro de usuário')
+
+@section('cabecalho')
+  <h1 class="text-center">Cadastro de usuário</h1>
+@end
+
+@section('corpo')
+    <form method="POST" action="{{ route('cadastrarUsuario') }}">
+        <label for="inputNome" class="form-label">Nome</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Nome do usuário" name="nome">
+        </div>
+
+        <label for="inputSobrenome" class="form-label">Sobrenome</label>
+        <div class="input-group mb-3">
+            <input class="form-control" placeholder="Sobrenome do usuário" name="sobrenome">
+        </div>
+    
+        <label for="inputEmail" class="form-label">E-mail</label>
+        <div class="input-group mb-3">
+            <input class="form-control" placeholder="E-mail do usuário" name="email">
+        </div>
+    
+        <label for="inputSenha" class="form-label">Senha</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Senha do usuário" name="senha">
+        </div>
+
+        <button class="btn btn-success">Salvar</button>
+    </form>
+@end
