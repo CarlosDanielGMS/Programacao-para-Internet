@@ -1,0 +1,22 @@
+@layout('layouts/bootstrap')
+@set('titulo', 'Entrada')
+
+@section('cabecalho')
+  <h1 class="text-center">Entrada</h1>
+@end
+
+@section('corpo')
+    <form method="POST" action="{{ route('autenticacaoEntrar') }}">
+        <label for="inputEmail" class="form-label">E-mail</label>
+        <div class="input-group mb-3">
+            <input class="form-control" placeholder="E-mail do usuário" name="email">
+        </div>
+    
+        <label for="inputSenha" class="form-label">Senha</label>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Senha do usuário" name="senha">
+        </div>
+
+        <button class="btn btn-success">Entrar</button>
+    </form>
+@end
