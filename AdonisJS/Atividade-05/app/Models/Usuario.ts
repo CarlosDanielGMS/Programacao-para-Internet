@@ -18,6 +18,9 @@ export default class Usuario extends BaseModel {
   @column()
   public senha: string
 
+  @column()
+  public papel: string
+
   @computed()
   public get password() {
     return this.senha
