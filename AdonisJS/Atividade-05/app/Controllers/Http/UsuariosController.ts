@@ -17,6 +17,7 @@ export default class UsuariosController {
         await Usuario.create(
             request.only([
                 'nome',
+                'sobrenome',
                 'email',
                 'senha'
             ])
