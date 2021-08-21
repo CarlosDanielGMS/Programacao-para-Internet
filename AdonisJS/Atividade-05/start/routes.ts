@@ -7,7 +7,9 @@ Route.get('/alterar/:id', 'ProdutosController.alteracao').as('ProdutoChange')
 Route.post('/alterar/:id', 'ProdutosController.alterar').as('ProdutoAlter')
 Route.get('/remover/:id', 'ProdutosController.remocao').as('ProdutoRemove')
 
-Route.get('/usuarios', 'UsuariosController.listagem').as('listagemUsuarios')
-Route.get('/usuarios/cadastro', 'UsuariosController.cadastro').as('cadastroUsuario')
-Route.post('/usuarios/cadastrar', 'UsuariosController.cadastrar').as('cadastrarUsuario')
-Route.get('/usuarios/remover/:id', 'UsuariosController.remover').as('removerUsuario')
+Route.group(() => {
+    Route.get('/', 'UsuariosController.listagem').as('listagemUsuarios')
+    Route.get('/cadastro', 'UsuariosController.cadastro').as('cadastroUsuario')
+    Route.post('/cadastrar', 'UsuariosController.cadastrar').as('cadastrarUsuario')
+    Route.get('/remover/:id', 'UsuariosController.remover').as('removerUsuario')
+}).prefix('/usuarios')
