@@ -29,4 +29,15 @@ export default class ProdutosController {
 
         response.redirect().toRoute('ProdutosViewer')
     }
+
+    public async remocao({ params, response }) {
+        const produto = await Produto.find(params.id)
+
+        if (produto)
+        {
+            await produto.delete()
+        }
+
+        response.redirect().toRoute('ProdutosViewer')
+    }
 }

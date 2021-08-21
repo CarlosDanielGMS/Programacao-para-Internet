@@ -29,6 +29,9 @@
         <td>{{ produto.categoria }}</td>
         <td>{{ produto.valor }}</td>
         <td>{{ produto.quantidade }}</td>
+        <td>
+          <a href="{{ route('ProdutoRemove', { id: produto.id }) }}" class="btn btn-danger">Remover</a>
+        </td>
       </tr>
       @end
     </tbody>
