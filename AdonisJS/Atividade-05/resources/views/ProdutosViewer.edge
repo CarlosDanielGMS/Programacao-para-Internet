@@ -30,6 +30,7 @@
         <td>{{ produto.valor }}</td>
         <td>{{ produto.quantidade }}</td>
         <td>
+          <a href="{{ route('ProdutoChange', { id: produto.id }) }}" class="btn btn-primary">Alterar</a>
           <a href="{{ route('ProdutoRemove', { id: produto.id }) }}" class="btn btn-danger">Remover</a>
         </td>
       </tr>

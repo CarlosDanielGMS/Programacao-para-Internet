@@ -1,0 +1,43 @@
+@layout('layouts/bootstrap')
+@set('titulo', 'Alteração de produto')
+
+@section('cabecalho')
+  <h1 class="text-center">Alteração de produto</h1>
+@end
+
+@section('corpo')
+    <form method="POST" action="{{ route('ProdutoAlter', { id: produto.id }) }}">
+        <label for="inputNome" class="form-label">Nome</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Nome do produto" value="{{ produto.nome }}" name="nome">
+        </div>
+
+        <label for="inputDescricao" class="form-label">Descrição</label>
+        <div class="input-group mb-3">
+            <input class="form-control" placeholder="Descrição do produto" value="{{ produto.descricao }}" name="descricao">
+        </div>
+    
+        <label for="inputEspecificacoes" class="form-label">Especificações</label>
+        <div class="input-group mb-3">
+            <input class="form-control" placeholder="Especificações do produto" value="{{ produto.especificacoes }}" name="especificacoes">
+        </div>
+    
+        <label for="inputCategoria" class="form-label">Categoria</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Categoria do produto" value="{{ produto.categoria }}" name="categoria">
+        </div>
+
+        <label for="inputValorUnitario" class="form-label">Valor</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text">R$</span>
+            <input type="text" class="form-control" placeholder="Valor do produto" value="{{ produto.valor }}" name="valor">
+        </div>
+
+        <label for="inputQuantidadeEstoque" class="form-label">Quantidade</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Quantidade do produto" value="{{ produto.quantidade }}" name="quantidade">
+        </div>
+
+        <button class="btn btn-success">Salvar</button>
+    </form>
+@end

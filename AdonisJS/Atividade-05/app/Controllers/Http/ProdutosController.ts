@@ -40,4 +40,37 @@ export default class ProdutosController {
 
         response.redirect().toRoute('ProdutosViewer')
     }
+
+    public async alteracao({ view, params, response }) {
+        const produto = await Produto.find(params.id)
+
+        if (produto)
+        {
+            return view.render('ProdutoChange', {produto})
+        }
+
+        response.redirect().back()
+    }
+
+    public async alterar({ params, request, response }) {
+        const produto = await Produto.find(params.id)
+
+        if (produto)
+        {
+            produto.merge(
+                request.only([
+                    'nome',
+                    'descricao',
+                    'especificacoes',
+                    'categoria',
+                    'valor',
+                    'quantidade'
+                ])
+            )
+
+            await produto.save()
+        }
+
+        response.redirect().toRoute('ProdutosViewer')
+    }
 }
