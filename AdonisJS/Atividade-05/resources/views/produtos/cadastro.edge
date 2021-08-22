@@ -6,7 +6,7 @@
 @end
 
 @section('corpo')
-    <form method="POST" action="{{ route('ProdutoSaver') }}">
+    <form method="POST" action="{{ route('cadastrarProduto') }}">
         <label for="inputNome" class="form-label">Nome</label>
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Nome do produto" name="nome">
@@ -14,12 +14,12 @@
 
         <label for="inputDescricao" class="form-label">Descrição</label>
         <div class="input-group mb-3">
-            <textarea class="form-control" placeholder="Descrição do produto" name="descricao"></textarea>
+            <input class="form-control" placeholder="Descrição do produto" name="descricao">
         </div>
     
         <label for="inputEspecificacoes" class="form-label">Especificações</label>
         <div class="input-group mb-3">
-            <textarea class="form-control" placeholder="Especificações do produto" name="especificacoes"></textarea>
+            <input class="form-control" placeholder="Especificações do produto" name="especificacoes">
         </div>
     
         <label for="inputCategoria" class="form-label">Categoria</label>

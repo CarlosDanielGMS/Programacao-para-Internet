@@ -23,7 +23,7 @@ export default class UsuariosController {
             ])
         )
 
-        response.redirect().toRoute('listagemUsuarios')
+        response.redirect().toRoute('entradaAutenticacao')
     }
 
     public async remover({ params, response }) {

@@ -12,15 +12,15 @@ export default class AutenticacaoController {
         try {
             await auth.use('web').attempt(email, senha)
 
-            response.redirect().toRoute('ProdutosViewer')
+            response.redirect().toRoute('listagemProdutos')
         } catch {
-            response.redirect().toRoute('autenticacaoEntrada')
+            response.redirect().toRoute('entradaAutenticacao')
         }
     }
     
     public async sair({ auth, response }) {
         await auth.use('web').logout()
         
-        response.redirect().toRoute('autenticacaoEntrada')
+        response.redirect().toRoute('entradaAutenticacao')
     }
 }

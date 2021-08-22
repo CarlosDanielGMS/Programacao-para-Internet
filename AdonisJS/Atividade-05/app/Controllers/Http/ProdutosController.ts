@@ -1,12 +1,10 @@
 import Produto from 'App/Models/Produto'
 
 export default class ProdutosController {
-    public async visualizacao({ view }) {
-        //Buscar informações
+    public async listagem({ view }) {
         const produtos = await Produto.all()
-
-        //Exibir a tela
-        return view.render('ProdutosViewer', {
+        
+        return view.render('produtos/listagem', {
             produtos: produtos
         })
     }
@@ -14,10 +12,10 @@ export default class ProdutosController {
     public async cadastro({ bouncer, view }) {
         await bouncer.authorize('gerenciarProdutos')
 
-        return view.render('ProdutoRegister')
+        return view.render('produtos/cadastro')
     }
 
-    public async salvamento({ bouncer, request, response }) {
+    public async cadastrar({ bouncer, request, response }) {
         await bouncer.authorize('gerenciarProdutos')
 
         await Produto.create(
@@ -31,20 +29,7 @@ export default class ProdutosController {
             ])
         )
 
-        response.redirect().toRoute('ProdutosViewer')
-    }
-
-    public async remocao({ bouncer, params, response }) {
-        await bouncer.authorize('gerenciarProdutos')
-
-        const produto = await Produto.find(params.id)
-
-        if (produto)
-        {
-            await produto.delete()
-        }
-
-        response.redirect().toRoute('ProdutosViewer')
+        response.redirect().toRoute('listagemProdutos')
     }
 
     public async alteracao({ bouncer, view, params, response }) {
@@ -54,7 +39,7 @@ export default class ProdutosController {
 
         if (produto)
         {
-            return view.render('ProdutoChange', {produto})
+            return view.render('produtos/alteracao', {produto})
         }
 
         response.redirect().back()
@@ -81,6 +66,19 @@ export default class ProdutosController {
             await produto.save()
         }
 
-        response.redirect().toRoute('ProdutosViewer')
+        response.redirect().toRoute('listagemProdutos')
+    }
+
+    public async remover({ bouncer, params, response }) {
+        await bouncer.authorize('gerenciarProdutos')
+
+        const produto = await Produto.find(params.id)
+
+        if (produto)
+        {
+            await produto.delete()
+        }
+
+        response.redirect().toRoute('listagemProdutos')
     }
 }
