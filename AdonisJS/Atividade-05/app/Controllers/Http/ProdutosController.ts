@@ -11,11 +11,15 @@ export default class ProdutosController {
         })
     }
 
-    public async cadastro({ view }) {
+    public async cadastro({ bouncer, view }) {
+        await bouncer.authorize('gerenciarProdutos')
+
         return view.render('ProdutoRegister')
     }
 
-    public async salvamento({ request, response }) {
+    public async salvamento({ bouncer, request, response }) {
+        await bouncer.authorize('gerenciarProdutos')
+
         await Produto.create(
             request.only([
                 'nome',
@@ -30,7 +34,9 @@ export default class ProdutosController {
         response.redirect().toRoute('ProdutosViewer')
     }
 
-    public async remocao({ params, response }) {
+    public async remocao({ bouncer, params, response }) {
+        await bouncer.authorize('gerenciarProdutos')
+
         const produto = await Produto.find(params.id)
 
         if (produto)
@@ -41,7 +47,9 @@ export default class ProdutosController {
         response.redirect().toRoute('ProdutosViewer')
     }
 
-    public async alteracao({ view, params, response }) {
+    public async alteracao({ bouncer, view, params, response }) {
+        await bouncer.authorize('alterarProdutos')
+
         const produto = await Produto.find(params.id)
 
         if (produto)
@@ -52,7 +60,9 @@ export default class ProdutosController {
         response.redirect().back()
     }
 
-    public async alterar({ params, request, response }) {
+    public async alterar({ bouncer, params, request, response }) {
+        await bouncer.authorize('alterarProdutos')
+
         const produto = await Produto.find(params.id)
 
         if (produto)

@@ -30,14 +30,22 @@
         <td>{{ produto.valor }}</td>
         <td>{{ produto.quantidade }}</td>
         <td>
+          @can('alterarProdutos')
           <a href="{{ route('ProdutoChange', { id: produto.id }) }}" class="btn btn-primary">Alterar</a>
+          @end
+
+          @can('gerenciarProdutos')
           <a href="{{ route('ProdutoRemove', { id: produto.id }) }}" class="btn btn-danger">Remover</a>
+          @end
         </td>
       </tr>
       @end
     </tbody>
   </table>
 
+  @can('gerenciarProdutos')
   <a class="btn btn-primary" href="{{ route('ProdutoRegister') }}" role="button">Cadastrar</a>
+  @end
+  
   <a class="btn btn-danger" href="{{ route('autenticacaoSair') }}" role="button">Sair</a>
 @end
