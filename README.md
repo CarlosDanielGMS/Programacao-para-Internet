@@ -1,2 +1,1 @@
-# Programacao-para-Internet
- Aprendendo JavaScript
+Exercícios referentes à disciplina Programação para Internet.
